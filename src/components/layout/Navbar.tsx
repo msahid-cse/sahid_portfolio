@@ -8,6 +8,7 @@ import { useTheme } from "@/components/shared/ThemeProvider";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
   { label: "Products", href: "#products" },

@@ -32,6 +32,15 @@ export interface ExpertiseArea {
   description: string;
 }
 
+export interface ServiceItem {
+  id: string;
+  title: string;
+  icon: string;
+  color: string;
+  description: string;
+  features: string[];
+}
+
 export interface ExperienceItem {
   id: string;
   role: string;
