@@ -279,7 +279,7 @@ export default function HeroSection() {
               <motion.a
                 href="https://drive.google.com/uc?export=download&id=1jrEVu-EtpLpDbBYImm19ojdh09G5UTIP"
                 target="_blank"
-                rel="noopener noreferrer"
+                // rel="noopener noreferrer"
                 download="Md_Sahid_CV.pdf"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
