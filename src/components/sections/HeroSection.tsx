@@ -118,7 +118,7 @@ export default function HeroSection() {
           gap: "60px",
           alignItems: "center",
         }}
-        className="hero-grid"
+          className="hero-grid"
         >
           {/* Left: Text */}
           <div>
@@ -277,7 +277,7 @@ export default function HeroSection() {
               </motion.button>
 
               <motion.a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1jrEVu-EtpLpDbBYImm19ojdh09G5UTIP/view?usp=drive_link"
                 download
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
