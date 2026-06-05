@@ -385,8 +385,17 @@ export default function HeroSection() {
                   color: "white",
                   letterSpacing: "-0.05em",
                 }}>
-                  MS
+                  {/* MS */}
                 </span>
+                <img
+                  src="https://drive.google.com/uc?export=view&id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs"
+                  alt="Md. Sahid"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
               {/* Online badge */}
               <div style={{
