@@ -367,15 +367,15 @@ export default function HeroSection() {
               }} />
               {/* Avatar container */}
               <div
-                style={{
-                  width: "clamp(200px, 25vw, 300px)",
-                  height: "clamp(200px, 25vw, 300px)",
-                  borderRadius: "50%",
-                  position: "relative",
-                  zIndex: 1,
-                  border: "3px solid rgba(255,255,255,0.1)",
-                  overflow: "hidden",
-                }}
+              // style={{
+              //   width: "clamp(200px, 25vw, 300px)",
+              //   height: "clamp(200px, 25vw, 300px)",
+              //   borderRadius: "50%",
+              //   position: "relative",
+              //   zIndex: 1,
+              //   border: "3px solid rgba(255,255,255,0.1)",
+              //   overflow: "hidden",
+              // }}
               >
                 <img
                   src="https://drive.google.com/thumbnail?id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs&sz=w1000"
