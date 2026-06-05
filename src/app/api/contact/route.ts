@@ -16,37 +16,28 @@ export async function POST(request: NextRequest) {
 
     const { name, email, company, subject, message } = parsed.data;
 
-    // 1) Save to Supabase (skip gracefully if not configured)
-    if (
-      process.env.NEXT_PUBLIC_SUPABASE_URL &&
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    ) {
+    // 1) Save to NeonDB
+    if (process.env.DATABASE_URL) {
       try {
-        const { createServerSupabaseClient } = await import("@/lib/supabase");
-        const supabase = createServerSupabaseClient();
-        await supabase.from("contact_submissions").insert({
-          name,
-          email,
-          company: company || null,
-          subject,
-          message,
-          status: "pending",
-          ip_address: request.headers.get("x-forwarded-for") || null,
-        });
+        const { getDb } = await import("@/lib/db");
+        const sql = getDb();
+        await sql`
+          INSERT INTO contact_submissions (name, email, company, subject, message, status, ip_address)
+          VALUES (${name}, ${email}, ${company || null}, ${subject}, ${message}, 'pending', ${request.headers.get("x-forwarded-for") || null})
+        `;
       } catch (dbErr) {
-        console.error("Supabase error (non-fatal):", dbErr);
+        console.error("NeonDB error (non-fatal):", dbErr);
       }
     }
 
-    // 2) Send notification + auto-reply via Resend (skip gracefully if not configured)
-    if (process.env.RESEND_API_KEY) {
+    // 2) Send notification + auto-reply via Nodemailer
+    if (process.env.SMTP_EMAIL && process.env.SMTP_PASSWORD) {
       try {
-        const { resend, FROM_EMAIL, TO_EMAIL } = await import("@/lib/resend");
+        const { sendMail, SMTP_EMAIL } = await import("@/lib/mailer");
 
         // Notification email to Sahid
-        await resend.emails.send({
-          from: FROM_EMAIL,
-          to: TO_EMAIL,
+        await sendMail({
+          to: SMTP_EMAIL,
           subject: `[Portfolio] New Message: ${subject}`,
           html: `
             <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -66,8 +57,7 @@ export async function POST(request: NextRequest) {
         });
 
         // Auto-reply to sender
-        await resend.emails.send({
-          from: FROM_EMAIL,
+        await sendMail({
           to: email,
           subject: `Thanks for reaching out, ${name}! — Md. Sahid`,
           html: `
@@ -88,7 +78,7 @@ export async function POST(request: NextRequest) {
           `,
         });
       } catch (emailErr) {
-        console.error("Resend error (non-fatal):", emailErr);
+        console.error("Nodemailer error (non-fatal):", emailErr);
       }
     }
 
