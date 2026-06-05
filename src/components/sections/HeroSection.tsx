@@ -366,34 +366,26 @@ export default function HeroSection() {
                 zIndex: 0,
               }} />
               {/* Avatar container */}
-              <div style={{
-                width: "clamp(200px, 25vw, 300px)",
-                height: "clamp(200px, 25vw, 300px)",
-                borderRadius: "50%",
-                background: "linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "relative",
-                zIndex: 1,
-                border: "3px solid rgba(255,255,255,0.1)",
-                overflow: "hidden",
-              }}>
-                <span style={{
-                  fontSize: "clamp(3rem, 8vw, 6rem)",
-                  fontWeight: 800,
-                  color: "white",
-                  letterSpacing: "-0.05em",
-                }}>
-                  {/* MS */}
-                </span>
+              <div
+                style={{
+                  width: "clamp(200px, 25vw, 300px)",
+                  height: "clamp(200px, 25vw, 300px)",
+                  borderRadius: "50%",
+                  position: "relative",
+                  zIndex: 1,
+                  border: "3px solid rgba(255,255,255,0.1)",
+                  overflow: "hidden",
+                }}
+              >
                 <img
-                  src="https://drive.google.com/uc?export=view&id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs"
+                  src="https://drive.google.com/thumbnail?id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs&sz=w1000"
                   alt="Md. Sahid"
+                  loading="eager"
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    display: "block",
                   }}
                 />
               </div>
