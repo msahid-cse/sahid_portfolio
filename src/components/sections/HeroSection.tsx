@@ -378,7 +378,7 @@ export default function HeroSection() {
               // }}
               >
                 <img
-                  src="https://drive.google.com/thumbnail?id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs&sz=w1000"
+                  src="https://drive.google.com/thumbnail?id=1ngoqN5glUsd9FKGeh0x5fo6PI5S3_tVu&sz=w1000"
                   alt="Md. Sahid"
                   loading="eager"
                   style={{
