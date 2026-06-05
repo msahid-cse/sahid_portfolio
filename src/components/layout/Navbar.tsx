@@ -14,7 +14,6 @@ const navLinks = [
   { label: "Products", href: "#products" },
   { label: "Research", href: "#research" },
   { label: "Experience", href: "#experience" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -58,24 +57,29 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         style={{
           position: "fixed",
-          top: "12px",
-          left: "50%",
-          transform: "translateX(-50%)",
+          top: 0,
+          left: 0,
+          right: 0,
+          width: "100%",
           zIndex: 1000,
-          width: "calc(100% - 48px)",
-          maxWidth: "1200px",
-          borderRadius: "16px",
-          border: scrolled ? "1px solid var(--border-medium)" : "1px solid var(--border-subtle)",
-          background: scrolled
-            ? "rgba(10, 10, 15, 0.85)"
-            : "rgba(10, 10, 15, 0.40)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          transition: "all 0.3s ease",
-          boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.3)" : "none",
+          background: scrolled ? "rgba(10, 10, 15, 0.97)" : "rgba(10, 10, 15, 0.82)",
+          borderBottom: scrolled ? "1px solid var(--border-medium)" : "1px solid transparent",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          transition: "all 0.25s ease",
+          boxShadow: scrolled ? "0 10px 40px rgba(0,0,0,0.28)" : "none",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 20px" }}>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "16px",
+          padding: "14px 20px",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          width: "100%",
+        }}>
           {/* Logo */}
           <motion.a
             href="#hero"

@@ -11,7 +11,7 @@ const commands = [
   { id: "projects", label: "Go to Projects", href: "#projects", icon: Briefcase, category: "Navigation" },
   { id: "research", label: "Go to Research", href: "#research", icon: FileText, category: "Navigation" },
   { id: "experience", label: "Go to Experience", href: "#experience", icon: Briefcase, category: "Navigation" },
-  { id: "blog", label: "Go to Blog", href: "#blog", icon: FileText, category: "Navigation" },
+  { id: "services", label: "Go to Services", href: "#services", icon: Briefcase, category: "Navigation" },
   { id: "contact", label: "Go to Contact", href: "#contact", icon: Mail, category: "Navigation" },
   { id: "resume", label: "Download Resume", href: "/resume.pdf", icon: FileText, category: "Actions" },
   { id: "github", label: "Open GitHub", href: "https://github.com/msahid-cse", icon: Code2, category: "Social" },

@@ -8,7 +8,6 @@ import ProductsSection from "@/components/sections/ProductsSection";
 import ResearchSection from "@/components/sections/ResearchSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import EducationSection from "@/components/sections/EducationSection";
-import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = {
@@ -74,7 +73,6 @@ export default function HomePage() {
       <ResearchSection />
       <ExperienceSection />
       <EducationSection />
-      <BlogSection />
       <ContactSection />
     </>
   );
