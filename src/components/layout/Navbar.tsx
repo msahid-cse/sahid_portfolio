@@ -74,9 +74,9 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          gap: "16px",
-          padding: "14px 20px",
-          maxWidth: "1200px",
+          gap: "12px",
+          padding: "14px 24px",
+          maxWidth: "1400px",
           margin: "0 auto",
           width: "100%",
         }}>
@@ -103,7 +103,7 @@ export default function Navbar() {
           </motion.a>
 
           {/* Desktop Nav */}
-          <nav style={{ display: "flex", gap: "4px", alignItems: "center" }} className="hidden-mobile">
+          <nav style={{ display: "flex", gap: "2px", alignItems: "center", flexShrink: 1, minWidth: 0 }} className="hidden-mobile">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "");
               return (
@@ -114,11 +114,12 @@ export default function Navbar() {
                     background: isActive ? "rgba(124,58,237,0.15)" : "transparent",
                     border: isActive ? "1px solid rgba(124,58,237,0.3)" : "1px solid transparent",
                     color: isActive ? "#a78bfa" : "var(--text-secondary)",
-                    padding: "6px 12px",
+                    padding: "6px 10px",
                     borderRadius: "8px",
                     cursor: "pointer",
                     fontSize: "13px",
                     fontWeight: isActive ? 600 : 400,
+                    whiteSpace: "nowrap",
                     transition: "all 0.2s ease",
                     fontFamily: "var(--font-sans)",
                   }}
@@ -142,7 +143,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right Actions */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
             {/* Keyboard shortcut hint */}
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-command-palette"))}
