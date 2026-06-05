@@ -277,8 +277,8 @@ export default function HeroSection() {
               </motion.button>
 
               <motion.a
-                href="https://drive.google.com/file/d/1jrEVu-EtpLpDbBYImm19ojdh09G5UTIP/view?usp=drive_link"
-                download
+                href="https://drive.google.com/uc?export=download&id=1jrEVu-EtpLpDbBYImm19ojdh09G5UTIP"
+                download="Md_Sahid_CV.pdf"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
@@ -297,7 +297,7 @@ export default function HeroSection() {
                 }}
               >
                 <Download size={16} />
-                Resume
+                Download CV
               </motion.a>
             </motion.div>
 
