@@ -166,7 +166,7 @@ export default function BlogSection() {
       </motion.div>
 
       {/* Posts Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "20px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(320px, 100%), 1fr))", gap: "20px" }}>
         {filtered.map((post, i) => (
           <motion.article
             key={post.slug}

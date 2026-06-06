@@ -121,7 +121,7 @@ export default function HeroSection() {
           className="hero-grid"
         >
           {/* Left: Text */}
-          <div>
+          <div className="hero-left">
             {/* Status badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -229,6 +229,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "48px" }}
+              className="hero-cta-row"
             >
               <motion.button
                 whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(124,58,237,0.4)" }}
@@ -309,6 +310,7 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               style={{ display: "flex", gap: "12px", alignItems: "center" }}
+              className="hero-social-row"
             >
               {[
                 { icon: GithubIcon, href: "https://github.com/msahid-cse", label: "GitHub" },
@@ -474,15 +476,30 @@ export default function HeroSection() {
           gap: 60px;
           align-items: center;
         }
+        .hero-left {
+          min-width: 0;
+        }
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr;
+            gap: 32px;
             text-align: center;
           }
           .hero-avatar-wrap {
             order: -1;
             display: flex;
             justify-content: center;
+          }
+          .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-cta-row {
+            justify-content: center !important;
+          }
+          .hero-social-row {
+            justify-content: center !important;
           }
         }
       `}</style>

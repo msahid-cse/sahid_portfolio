@@ -55,19 +55,21 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        style={{
+      style={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
           width: "100%",
           zIndex: 1000,
-          background: scrolled ? "rgba(10, 10, 15, 0.97)" : "rgba(10, 10, 15, 0.82)",
+          background: scrolled
+            ? "var(--navbar-bg-scrolled)"
+            : "var(--navbar-bg)",
           borderBottom: scrolled ? "1px solid var(--border-medium)" : "1px solid transparent",
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
           transition: "all 0.25s ease",
-          boxShadow: scrolled ? "0 10px 40px rgba(0,0,0,0.28)" : "none",
+          boxShadow: scrolled ? "var(--shadow-card)" : "none",
         }}
       >
         <div style={{

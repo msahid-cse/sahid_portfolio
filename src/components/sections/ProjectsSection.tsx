@@ -102,7 +102,7 @@ export default function ProjectsSection() {
       {/* Projects Grid */}
       <motion.div
         layout
-        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "20px" }}
+        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(340px, 100%), 1fr))", gap: "20px" }}
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((project, i) => {

@@ -23,9 +23,22 @@ export default function SectionWrapper({ children, id, className }: SectionWrapp
       className={className}
       style={{ padding: "80px 24px" }}
     >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
         {children}
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #${id} {
+            padding: 60px 16px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          #${id} {
+            padding: 48px 14px !important;
+          }
+        }
+      `}</style>
     </motion.section>
   );
 }

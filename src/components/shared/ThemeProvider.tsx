@@ -24,14 +24,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       : "light";
     const initial = stored || preferred;
     setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
+    applyTheme(initial);
   }, []);
+
+  const applyTheme = (t: Theme) => {
+    document.documentElement.setAttribute("data-theme", t);
+    if (t === "light") {
+      document.documentElement.classList.add("light-theme");
+      document.documentElement.classList.remove("dark-theme");
+    } else {
+      document.documentElement.classList.add("dark-theme");
+      document.documentElement.classList.remove("light-theme");
+    }
+  };
 
   const toggleTheme = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
     localStorage.setItem("theme", next);
-    document.documentElement.setAttribute("data-theme", next);
+    applyTheme(next);
   };
 
   return (
