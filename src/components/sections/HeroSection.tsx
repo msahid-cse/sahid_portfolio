@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
-  Download,
+  ExternalLink,
   ArrowRight,
   MapPin,
   Briefcase,
@@ -15,6 +15,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/shared/BrandIcons";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
 import { projects } from "@/data/projects";
 import { researchItems } from "@/data/research";
+import { profileAssets } from "@/data/profile";
 
 const roles = [
   "Data Operations Analyst",
@@ -295,10 +296,9 @@ export default function HeroSection() {
               </motion.button>
 
               <motion.a
-                href="https://drive.google.com/uc?export=download&id=1jrEVu-EtpLpDbBYImm19ojdh09G5UTIP"
+                href={profileAssets.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                download="Md_Sahid_CV.pdf"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
@@ -317,8 +317,8 @@ export default function HeroSection() {
                 }}
                 className="hero-cta-button"
               >
-                <Download size={16} />
-                Download CV
+                <ExternalLink size={16} />
+                View CV
               </motion.a>
             </motion.div>
 
@@ -399,8 +399,7 @@ export default function HeroSection() {
                 className="hero-avatar-frame"
               >
                 <img
-                  // src="https://drive.google.com/thumbnail?id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs&sz=w1000"
-                  src="https://drive.google.com/thumbnail?id=1ngoqN5glUsd9FKGeh0x5fo6PI5S3_tVu&sz=w1000"
+                  src={profileAssets.portraitUrl}
                   alt="Md. Sahid"
                   loading="eager"
                   style={{

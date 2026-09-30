@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ArrowRight, Briefcase, FileText, Mail, User, Code2 } from "lucide-react";
+import { profileAssets } from "@/data/profile";
 
 const commands = [
   { id: "home", label: "Go to Home", href: "#hero", icon: User, category: "Navigation" },
@@ -13,7 +14,7 @@ const commands = [
   { id: "experience", label: "Go to Experience", href: "#experience", icon: Briefcase, category: "Navigation" },
   { id: "services", label: "Go to Services", href: "#services", icon: Briefcase, category: "Navigation" },
   { id: "contact", label: "Go to Contact", href: "#contact", icon: Mail, category: "Navigation" },
-  { id: "resume", label: "Download Resume", href: "/resume.pdf", icon: FileText, category: "Actions" },
+  { id: "resume", label: "View Resume", href: profileAssets.resumeUrl, icon: FileText, category: "Actions" },
   { id: "github", label: "Open GitHub", href: "https://github.com/msahid-cse", icon: Code2, category: "Social" },
   { id: "email", label: "Send Email", href: "mailto:msahid.cse@gmail.com", icon: Mail, category: "Social" },
 ];
