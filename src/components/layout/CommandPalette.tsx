@@ -14,7 +14,7 @@ const commands = [
   { id: "experience", label: "Go to Experience", href: "#experience", icon: Briefcase, category: "Navigation" },
   { id: "services", label: "Go to Services", href: "#services", icon: Briefcase, category: "Navigation" },
   { id: "contact", label: "Go to Contact", href: "#contact", icon: Mail, category: "Navigation" },
-  { id: "resume", label: "View Resume", href: profileAssets.resumeUrl, icon: FileText, category: "Actions" },
+  { id: "resume", label: "Download Resume", href: profileAssets.resumeUrl, icon: FileText, category: "Actions" },
   { id: "github", label: "Open GitHub", href: "https://github.com/msahid-cse", icon: Code2, category: "Social" },
   { id: "email", label: "Send Email", href: "mailto:msahid.cse@gmail.com", icon: Mail, category: "Social" },
 ];
@@ -32,7 +32,14 @@ export default function CommandPalette() {
   const handleSelect = useCallback((href: string) => {
     setOpen(false);
     setQuery("");
-    if (href.startsWith("http") || href.startsWith("mailto") || href.startsWith("/resume")) {
+    if (href === profileAssets.resumeUrl) {
+      const downloadLink = document.createElement("a");
+      downloadLink.href = href;
+      downloadLink.download = profileAssets.resumeFileName;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+    } else if (href.startsWith("http") || href.startsWith("mailto")) {
       window.open(href, href.startsWith("mailto") ? "_self" : "_blank");
     } else {
       const id = href.replace("#", "");

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, ExternalLink } from "lucide-react";
+import { Menu, X, Sun, Moon, Download } from "lucide-react";
 import { useTheme } from "@/components/shared/ThemeProvider";
 import { profileAssets } from "@/data/profile";
 
@@ -191,8 +191,7 @@ export default function Navbar() {
             {/* Resume */}
             <a
               href={profileAssets.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              download={profileAssets.resumeFileName}
               style={{
                 background: "linear-gradient(135deg, #7c3aed, #6d28d9)",
                 color: "white",
@@ -210,8 +209,8 @@ export default function Navbar() {
               }}
               className="hidden-mobile"
             >
-              <ExternalLink size={14} />
-              Resume
+              <Download size={14} />
+              Download Resume
             </a>
 
             {/* Mobile Menu Toggle */}
@@ -271,8 +270,7 @@ export default function Navbar() {
               ))}
               <a
                 href={profileAssets.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                download={profileAssets.resumeFileName}
                 style={{
                   background: "linear-gradient(135deg, #7c3aed, #6d28d9)",
                   color: "white",
@@ -287,8 +285,8 @@ export default function Navbar() {
                   gap: "8px",
                 }}
               >
-                <ExternalLink size={14} />
-                View Resume
+                <Download size={14} />
+                Download Resume
               </a>
             </motion.div>
           )}

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
-  ExternalLink,
+  Download,
   ArrowRight,
   MapPin,
   Briefcase,
@@ -297,8 +297,7 @@ export default function HeroSection() {
 
               <motion.a
                 href={profileAssets.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                download={profileAssets.resumeFileName}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
@@ -317,8 +316,8 @@ export default function HeroSection() {
                 }}
                 className="hero-cta-button"
               >
-                <ExternalLink size={16} />
-                View CV
+                <Download size={16} />
+                Download CV
               </motion.a>
             </motion.div>
 
