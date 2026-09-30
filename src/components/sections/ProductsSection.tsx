@@ -29,10 +29,10 @@ export default function ProductsSection() {
         style={{ textAlign: "center", marginBottom: "64px" }}
       >
         <span style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#a78bfa", fontFamily: "var(--font-mono)" }}>
-          Flagship Product
+          Product in Development
         </span>
         <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, letterSpacing: "-0.03em", color: "var(--text-primary)", marginTop: "12px", lineHeight: 1.1 }}>
-          Introducing{" "}
+          Building{" "}
           <span style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
             Personal AI OS
           </span>
@@ -81,22 +81,22 @@ export default function ProductsSection() {
               marginBottom: "24px",
             }}>
               <Zap size={14} style={{ color: "#a78bfa" }} />
-              <span style={{ fontSize: "13px", fontWeight: 600, color: "#a78bfa" }}>AI-Powered Personal OS</span>
+              <span style={{ fontSize: "13px", fontWeight: 600, color: "#a78bfa" }}>In Development</span>
             </div>
 
             <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", fontWeight: 800, color: "var(--text-primary)", marginBottom: "16px", lineHeight: 1.15 }}>
-              Your life, operating at peak performance
+              A smarter workspace for your goals, tasks, and metrics
             </h3>
 
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: 1.8, marginBottom: "32px" }}>
-              Personal AI OS is an intelligent productivity ecosystem that connects your
-              goals, tasks, metrics, and AI assistant in one unified dashboard. Get
-              automated daily briefings via Telegram & WhatsApp, track KPIs in real time,
-              and let AI help you make better decisions every day.
+              I’m building a productivity platform to bring personal and professional goals,
+              tasks, and key metrics into one workspace. Planned capabilities include an AI
+              assistant, workflow insights, and daily summaries through Telegram and WhatsApp.
             </p>
 
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "32px" }}>
-              <motion.button
+              <motion.a
+                href="#contact"
                 whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(124,58,237,0.4)" }}
                 whileTap={{ scale: 0.97 }}
                 style={{
@@ -112,15 +112,17 @@ export default function ProductsSection() {
                   alignItems: "center",
                   gap: "8px",
                   fontFamily: "var(--font-sans)",
+                  textDecoration: "none",
                 }}
               >
-                Join Waitlist
+                Ask About the Project
                 <ArrowRight size={16} />
-              </motion.button>
+              </motion.a>
 
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
+                type="button"
+                disabled
+                aria-label="Live demo coming soon"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   color: "var(--text-primary)",
@@ -129,15 +131,16 @@ export default function ProductsSection() {
                   padding: "14px 24px",
                   fontSize: "15px",
                   fontWeight: 600,
-                  cursor: "pointer",
+                  cursor: "not-allowed",
                   fontFamily: "var(--font-sans)",
+                  opacity: 0.65,
                 }}
               >
-                View Demo →
-              </motion.button>
+                Demo Coming Soon
+              </button>
             </div>
 
-            {/* Pricing placeholder */}
+            {/* Current development status */}
             <div style={{
               background: "rgba(255,255,255,0.03)",
               border: "1px solid var(--border-subtle)",
@@ -145,17 +148,16 @@ export default function ProductsSection() {
               padding: "20px",
             }}>
               <p style={{ fontSize: "12px", color: "var(--text-tertiary)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
-                Pricing
+                Current Status
               </p>
               <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
                 <div>
-                  <span style={{ fontSize: "28px", fontWeight: 800, color: "var(--text-primary)" }}>Free</span>
-                  <span style={{ color: "var(--text-tertiary)", fontSize: "14px" }}> beta access</span>
+                  <span style={{ fontSize: "22px", fontWeight: 800, color: "var(--text-primary)" }}>In Progress</span>
                 </div>
                 <div style={{ width: 1, height: 32, background: "var(--border-subtle)" }} />
                 <div>
                   <span style={{ fontSize: "13px", color: "var(--text-secondary)" }}>
-                    Pro plan launching soon · Early birds get 50% off
+                    Beta access and pricing will be announced closer to launch.
                   </span>
                 </div>
               </div>
@@ -164,6 +166,9 @@ export default function ProductsSection() {
 
           {/* Right: Feature Grid */}
           <div>
+            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-tertiary)", margin: "0 0 12px" }}>
+              Planned Capabilities
+            </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
               {features.map((feature, i) => {
                 const Icon = feature.icon;

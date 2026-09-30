@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/shared/BrandIcons";
 import AnimatedCounter from "@/components/shared/AnimatedCounter";
+import { projects } from "@/data/projects";
+import { researchItems } from "@/data/research";
 
 const roles = [
   "Data Operations Analyst",
@@ -23,11 +25,17 @@ const roles = [
   "Frontend Developer",
 ];
 
+const automationProjectCount = projects.filter(
+  (project) =>
+    project.category === "Automation" ||
+    project.id === "selenium-automation-framework",
+).length;
+
 const stats = [
-  { label: "Projects Completed", value: 9, icon: Briefcase, suffix: "+" },
+  { label: "Projects Completed", value: 10, icon: Briefcase, suffix: "+" },
   { label: "Years of Experience", value: 1, icon: Briefcase, suffix: "+" },
-  { label: "Research Projects", value: 3, icon: FlaskConical, suffix: "" },
-  { label: "Automation Systems", value: 3, icon: Cpu, suffix: "+" },
+  { label: "Research Projects", value: researchItems.length, icon: FlaskConical, suffix: "" },
+  { label: "Automation Projects", value: automationProjectCount, icon: Cpu, suffix: "" },
 ];
 
 export default function HeroSection() {
