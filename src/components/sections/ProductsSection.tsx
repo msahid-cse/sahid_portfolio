@@ -52,6 +52,7 @@ export default function ProductsSection() {
           position: "relative",
           overflow: "hidden",
         }}
+        className="product-card"
       >
         {/* Background decoration */}
         <div style={{
@@ -208,7 +209,7 @@ export default function ProductsSection() {
       </motion.div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .product-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

@@ -27,7 +27,7 @@ export default function ExperienceSection() {
       </motion.div>
 
       {/* Timeline */}
-      <div style={{ position: "relative", maxWidth: "800px" }}>
+      <div style={{ position: "relative", maxWidth: "800px", width: "100%" }}>
         {/* Vertical line */}
         <div style={{
           position: "absolute",
@@ -36,7 +36,7 @@ export default function ExperienceSection() {
           bottom: "0",
           width: "1px",
           background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.2))",
-        }} />
+        }} className="experience-line" />
 
         {experiences.map((exp, i) => (
           <motion.div
@@ -46,9 +46,10 @@ export default function ExperienceSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
             style={{ display: "flex", gap: "28px", marginBottom: "40px" }}
+            className="experience-row"
           >
             {/* Timeline dot */}
-            <div style={{ flexShrink: 0, position: "relative" }}>
+            <div style={{ flexShrink: 0, position: "relative" }} className="experience-marker">
               <div style={{
                 width: 48, height: 48,
                 borderRadius: "14px",
@@ -87,6 +88,7 @@ export default function ExperienceSection() {
                 padding: "28px",
                 transition: "all 0.3s ease",
               }}
+              className="experience-card"
             >
               {/* Header */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px", marginBottom: "4px" }}>

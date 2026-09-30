@@ -5,10 +5,10 @@ import SectionWrapper from "@/components/shared/SectionWrapper";
 
 const TIMELINE = [
   {
-    year: "2024–2025",
-    title: "AI Research & Deep Learning",
-    desc: "Dove into advanced ML research — building forecasting models with LSTM/GRU/CNN, exploring NLP with mBART & T5 for Bangla language, and applying computer vision to real-world systems.",
-    color: "#a78bfa",
+    year: "Jan 2026 – Jul 16, 2026",
+    title: "Data Operations & GIS",
+    desc: "Led data operations at TechnoNext Software Ltd, including geospatial data validation, OpenStreetMap route processing, and automated data quality pipelines for production systems.",
+    color: "#10b981",
   },
   {
     year: "2025",
@@ -17,10 +17,10 @@ const TIMELINE = [
     color: "#06b6d4",
   },
   {
-    year: "2026–Present",
-    title: "Data Operations & GIS",
-    desc: "Now leading data operations at TechnoNext Software Ltd — validating geospatial data, processing OpenStreetMap routes, and building automated data quality pipelines for production systems.",
-    color: "#10b981",
+    year: "2024–2025",
+    title: "AI Research & Deep Learning",
+    desc: "Dove into advanced ML research — building forecasting models with LSTM/GRU/CNN, exploring NLP with mBART & T5 for Bangla language, and applying computer vision to real-world systems.",
+    color: "#a78bfa",
   },
 ];
 

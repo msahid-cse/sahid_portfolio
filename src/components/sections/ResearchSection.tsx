@@ -31,7 +31,7 @@ export default function ResearchSection() {
           </span>
         </h2>
         <p style={{ color: "var(--text-secondary)", fontSize: "16px", maxWidth: "520px", margin: "16px auto 0", lineHeight: 1.7 }}>
-          Applied AI research spanning NLP, deep learning for forecasting, and computer vision systems.
+          Applied AI research spanning deep learning for forecasting and natural language processing.
         </p>
       </motion.div>
 
@@ -114,14 +114,29 @@ export default function ResearchSection() {
                   {item.description}
                 </p>
 
-                {/* Models */}
+                {item.supervisor && (
+                  <p style={{ color: "var(--text-tertiary)", fontSize: "12px", lineHeight: 1.7, marginBottom: "20px" }}>
+                    <strong style={{ color: "var(--text-secondary)" }}>Supervisor: </strong>
+                    <a
+                      href={item.supervisor.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#a78bfa", textDecoration: "underline", textUnderlineOffset: "3px" }}
+                    >
+                      {item.supervisor.name}
+                    </a>
+                    {`, ${item.supervisor.title}, ${item.supervisor.institution}.`}
+                  </p>
+                )}
+
+                {/* Research approach */}
                 <div style={{ marginBottom: "16px" }}>
                   <p style={{ fontSize: "11px", color: "var(--text-tertiary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "8px" }}>
-                    Models & Tools
+                    Research Approach
                   </p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                    {item.models.map((m) => (
-                      <span key={m} style={{
+                    {item.methods.map((method) => (
+                      <span key={method} style={{
                         background: "rgba(124,58,237,0.1)",
                         border: "1px solid rgba(124,58,237,0.2)",
                         borderRadius: "6px",
@@ -130,7 +145,7 @@ export default function ResearchSection() {
                         color: "#c4b5fd",
                         fontFamily: "var(--font-mono)",
                       }}>
-                        {m}
+                        {method}
                       </span>
                     ))}
                   </div>

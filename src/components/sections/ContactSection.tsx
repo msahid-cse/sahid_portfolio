@@ -169,6 +169,7 @@ export default function ContactSection() {
             borderRadius: "24px",
             padding: "40px",
           }}
+          className="contact-form-card"
         >
           <AnimatePresence mode="wait">
             {status === "success" ? (
@@ -347,8 +348,10 @@ export default function ContactSection() {
 
       <style>{`
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .contact-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 768px) {
           .form-row { grid-template-columns: 1fr !important; }
         }
       `}</style>

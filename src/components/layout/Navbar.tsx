@@ -72,7 +72,7 @@ export default function Navbar() {
           boxShadow: scrolled ? "var(--shadow-card)" : "none",
         }}
       >
-        <div style={{
+        <div className="navbar-inner" style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -293,11 +293,11 @@ export default function Navbar() {
       </motion.header>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: flex !important; }
         }
-        @media (min-width: 769px) {
+        @media (min-width: 1025px) {
           .show-mobile { display: none !important; }
           .hidden-mobile { display: flex !important; }
         }

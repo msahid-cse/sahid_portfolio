@@ -6,6 +6,7 @@ export interface Project {
   problem: string;
   solution: string;
   technologies: string[];
+  highlights?: string[];
   results: string[];
   github?: string;
   demo?: string;
@@ -58,7 +59,13 @@ export interface ResearchItem {
   title: string;
   category: string;
   description: string;
-  models: string[];
+  supervisor?: {
+    name: string;
+    href: string;
+    title: string;
+    institution: string;
+  };
+  methods: string[];
   outcomes: string[];
   status: "Published" | "In Progress" | "Completed";
   year: string;

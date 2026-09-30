@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import type { CSSProperties } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Star, ArrowRight } from "lucide-react";
+import { ExternalLink, Star, ArrowRight, CheckCircle2 } from "lucide-react";
 import { GithubIcon } from "@/components/shared/BrandIcons";
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import { projects } from "@/data/projects";
 import type { ProjectCategory } from "@/types";
+import styles from "./ProjectsSection.module.css";
 
 const categories: ProjectCategory[] = [
   "All",
@@ -100,10 +102,7 @@ export default function ProjectsSection() {
       </motion.div>
 
       {/* Projects Grid */}
-      <motion.div
-        layout
-        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(340px, 100%), 1fr))", gap: "20px" }}
-      >
+      <motion.div layout className={styles.projectsGrid}>
         <AnimatePresence mode="popLayout">
           {filtered.map((project, i) => {
             const catColor = categoryColors[project.category] || "#7c3aed";
@@ -115,23 +114,12 @@ export default function ProjectsSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
-                whileHover={{ y: -6 }}
-                style={{
-                  background: "rgba(255,255,255,0.025)",
-                  border: "1px solid var(--border-subtle)",
-                  borderRadius: "20px",
-                  padding: "28px",
-                  backdropFilter: "blur(12px)",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "box-shadow 0.3s ease",
-                  cursor: "default",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px ${catColor}30`)}
-                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+                whileHover={{ y: -4 }}
+                className={styles.card}
+                style={{ "--project-accent": catColor } as CSSProperties}
               >
                 {/* Top Row */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+                <div className={styles.topRow}>
                   <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                     <span style={{
                       background: `${catColor}18`,
@@ -165,19 +153,13 @@ export default function ProjectsSection() {
 
                   <div style={{ display: "flex", gap: "8px" }}>
                     {project.github && (
-                      <a href={project.github} target="_blank" rel="noreferrer"
-                        style={{ color: "var(--text-tertiary)", transition: "color 0.2s" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = "#a78bfa")}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-tertiary)")}
+                      <a href={project.github} target="_blank" rel="noreferrer" className={styles.iconLink} aria-label={`View ${project.title} source on GitHub`}
                       >
                         <GithubIcon size={16} />
                       </a>
                     )}
                     {project.demo && project.demo !== "#" && (
-                      <a href={project.demo} target="_blank" rel="noreferrer"
-                        style={{ color: "var(--text-tertiary)", transition: "color 0.2s" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = "#a78bfa")}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-tertiary)")}
+                      <a href={project.demo} target="_blank" rel="noreferrer" className={styles.iconLink} aria-label={`Open ${project.title} live demo`}
                       >
                         <ExternalLink size={16} />
                       </a>
@@ -185,54 +167,55 @@ export default function ProjectsSection() {
                   </div>
                 </div>
 
-                <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--text-primary)", marginBottom: "10px" }}>
+                <h3 className={styles.title}>
                   {project.title}
                 </h3>
 
-                <p style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "20px", flex: 1 }}>
+                <p className={styles.description}>
                   {project.description}
                 </p>
 
+                {project.highlights && project.highlights.length > 0 && (
+                  <div className={styles.highlights}>
+                    <p className={styles.sectionLabel}>
+                      Highlights
+                    </p>
+                    <div className={styles.highlightList}>
+                      {project.highlights.slice(0, 2).map((highlight) => (
+                        <div key={highlight} className={styles.highlight}>
+                          <CheckCircle2 size={14} style={{ color: catColor, marginTop: "2px", flexShrink: 0 }} />
+                          <span className={styles.highlightText}>
+                            {highlight}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Result */}
                 {project.results[0] && (
-                  <div style={{
+                  <div className={styles.keyResult} style={{
                     background: `${catColor}08`,
                     border: `1px solid ${catColor}20`,
-                    borderRadius: "10px",
-                    padding: "12px 16px",
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
                   }}>
                     <ArrowRight size={14} style={{ color: catColor, flexShrink: 0 }} />
-                    <span style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.5 }}>
+                    <span className={styles.resultText}>
                       {project.results[0]}
                     </span>
                   </div>
                 )}
 
                 {/* Tech Stack */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                  {project.technologies.slice(0, 5).map((tech) => (
-                    <span
-                      key={tech}
-                      style={{
-                        background: "rgba(255,255,255,0.04)",
-                        border: "1px solid var(--border-subtle)",
-                        borderRadius: "6px",
-                        padding: "3px 8px",
-                        fontSize: "11px",
-                        color: "var(--text-tertiary)",
-                        fontFamily: "var(--font-mono)",
-                      }}
-                    >
+                <div className={styles.techStack}>
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span key={tech} className={styles.techTag}>
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > 5 && (
-                    <span style={{ fontSize: "11px", color: "var(--text-tertiary)", padding: "3px 6px" }}>
-                      +{project.technologies.length - 5}
+                  {project.technologies.length > 4 && (
+                    <span className={styles.techMore}>
+                      +{project.technologies.length - 4} more
                     </span>
                   )}
                 </div>

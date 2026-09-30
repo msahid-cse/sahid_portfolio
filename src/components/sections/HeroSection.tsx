@@ -48,6 +48,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         minHeight: "100vh",
         display: "flex",
@@ -111,11 +112,11 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", width: "100%", margin: "0 auto" }}>
+      <div className="hero-container" style={{ position: "relative", zIndex: 1, maxWidth: "1200px", width: "100%", margin: "0 auto" }}>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "1fr auto",
-          gap: "60px",
+          gridTemplateColumns: "minmax(0, 1fr) minmax(220px, 300px)",
+          gap: "clamp(32px, 5vw, 64px)",
           alignItems: "center",
         }}
           className="hero-grid"
@@ -137,6 +138,7 @@ export default function HeroSection() {
                 padding: "6px 14px",
                 marginBottom: "28px",
               }}
+              className="hero-status-badge"
             >
               <span style={{
                 width: 8, height: 8,
@@ -157,13 +159,14 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               style={{
-                fontSize: "clamp(2.8rem, 6vw, 5rem)",
+                fontSize: "clamp(2.7rem, 6vw, 5rem)",
                 fontWeight: 800,
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
                 marginBottom: "16px",
                 color: "var(--text-primary)",
               }}
+              className="hero-title"
             >
               Md.{" "}
               <span
@@ -183,7 +186,8 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              style={{ marginBottom: "24px", height: "36px", display: "flex", alignItems: "center" }}
+              style={{ marginBottom: "24px", minHeight: "36px", display: "flex", alignItems: "center" }}
+              className="hero-role"
             >
               <AnimatePresence mode="wait">
                 {visible && (
@@ -194,10 +198,12 @@ export default function HeroSection() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.35 }}
                     style={{
-                      fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
+                      fontSize: "clamp(0.95rem, 2.5vw, 1.35rem)",
                       fontWeight: 600,
                       color: "#a78bfa",
                       fontFamily: "var(--font-mono)",
+                      lineHeight: 1.45,
+                      textAlign: "center",
                     }}
                   >
                     {roles[roleIndex]}
@@ -218,6 +224,7 @@ export default function HeroSection() {
                 maxWidth: "580px",
                 marginBottom: "40px",
               }}
+              className="hero-summary"
             >
               I build data-driven systems, GIS solutions, automation workflows,
               quality-assured software products, and AI-powered business tools.
@@ -249,6 +256,7 @@ export default function HeroSection() {
                   gap: "8px",
                   fontFamily: "var(--font-sans)",
                 }}
+                className="hero-cta-button"
               >
                 View Projects
                 <ArrowRight size={16} />
@@ -272,6 +280,7 @@ export default function HeroSection() {
                   gap: "8px",
                   fontFamily: "var(--font-sans)",
                 }}
+                className="hero-cta-button"
               >
                 <Mail size={16} />
                 Contact Me
@@ -298,6 +307,7 @@ export default function HeroSection() {
                   gap: "8px",
                   textDecoration: "none",
                 }}
+                className="hero-cta-button"
               >
                 <Download size={16} />
                 Download CV
@@ -378,6 +388,7 @@ export default function HeroSection() {
                   border: "3px solid rgba(255,255,255,0.1)",
                   overflow: "hidden",
                 }}
+                className="hero-avatar-frame"
               >
                 <img
                   // src="https://drive.google.com/thumbnail?id=1LehL2P9wZF-NSxbSRFS9h_EO7OITQuzs&sz=w1000"
@@ -415,10 +426,11 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+            gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
             gap: "16px",
             marginTop: "64px",
           }}
+          className="hero-stats-grid"
         >
           {stats.map((stat, i) => {
             const Icon = stat.icon;
@@ -436,6 +448,7 @@ export default function HeroSection() {
                   transition: "all 0.3s ease",
                   cursor: "default",
                 }}
+                className="hero-stat-card"
               >
                 <div style={{
                   width: 40, height: 40,
@@ -469,40 +482,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <style>{`
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 60px;
-          align-items: center;
-        }
-        .hero-left {
-          min-width: 0;
-        }
-        @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 32px;
-            text-align: center;
-          }
-          .hero-avatar-wrap {
-            order: -1;
-            display: flex;
-            justify-content: center;
-          }
-          .hero-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          .hero-cta-row {
-            justify-content: center !important;
-          }
-          .hero-social-row {
-            justify-content: center !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

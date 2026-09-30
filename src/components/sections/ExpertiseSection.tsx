@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Map, BarChart3, ShieldCheck, Code2, Zap, Brain } from "lucide-react";
+import { Map, BarChart3, ShieldCheck, Layers, Zap, Brain } from "lucide-react";
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import { expertiseAreas } from "@/data/expertise";
 
@@ -9,7 +9,7 @@ const iconMap: Record<string, React.ElementType> = {
   Map,
   BarChart3,
   ShieldCheck,
-  Code2,
+  Layers,
   Zap,
   Brain,
 };
@@ -18,7 +18,7 @@ const gradientMap: Record<string, { border: string; glow: string }> = {
   gis: { border: "rgba(16,185,129,0.3)", glow: "rgba(16,185,129,0.08)" },
   "data-analytics": { border: "rgba(59,130,246,0.3)", glow: "rgba(59,130,246,0.08)" },
   sqa: { border: "rgba(139,92,246,0.3)", glow: "rgba(139,92,246,0.08)" },
-  frontend: { border: "rgba(249,115,22,0.3)", glow: "rgba(249,115,22,0.08)" },
+  "full-stack": { border: "rgba(6,182,212,0.3)", glow: "rgba(6,182,212,0.08)" },
   "ai-automation": { border: "rgba(234,179,8,0.3)", glow: "rgba(234,179,8,0.08)" },
   "ai-ml": { border: "rgba(236,72,153,0.3)", glow: "rgba(236,72,153,0.08)" },
 };
